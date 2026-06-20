@@ -72,9 +72,16 @@ The skill routes each request to the right reference, template, or workflow. If 
 Studio MCP is connected, it can build and verify live; otherwise it produces ready-to-use
 files and clear manual steps.
 
+## Contributing
+
+Pull requests are welcome, and honestly encouraged. Found something wrong, know a cleaner
+pattern, or want to add a reference, template, or workflow? Open an issue or send a PR. Fork
+it, build on it, break it apart for your own setup. The whole point is for the Roblox
+community to use this and make it better, so don't be shy about jumping in.
+
 ## Credits
 
-Independent, open-source skill by Faza. Its router-plus-library shape is inspired by existing
-open-source Roblox skill work, and its conventions are modeled on patterns common in
-production Rojo projects, rewritten here as an original work. Not affiliated with Roblox or
-the Rojo project.
+This skill stands on patterns the Roblox community already worked out. The router-plus-library
+shape follows existing open-source Roblox skill work, and the conventions are modeled on common
+production Rojo projects, then rewritten as an independent skill. It's a community starting
+point, not a one-person showcase. Not affiliated with Roblox or the Rojo project.
