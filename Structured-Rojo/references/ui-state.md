@@ -23,10 +23,15 @@ server, the store mirrors what the server has told the client.
 ```
 client/
 ├── Roact/
-│   ├── Root/
-│   │   └── Application.luau     # top-level component tree (e.g. Root.Game)
-│   ├── Components/              # reusable bits (Button, Tooltip, Frame)
-│   └── Screens/                # full screens (HUD, Shop, Inventory, Settings)
+│   ├── Applications/           # one folder per feature's UI; where "screens" actually live
+│   │   ├── HUD/
+│   │   │   ├── Application.luau   # the feature's root component
+│   │   │   └── Frames/           # its sub-components (BottomFrame, QuestFrame/, …)
+│   │   └── Shop/
+│   │       ├── Application.luau
+│   │       └── Frames/           # ShopCard, GroupButton, …
+│   ├── Components/              # shared widgets reused across features (Button, Tooltip)
+│   └── Root/                    # the single top-level tree that mounts the Applications
 ├── Rodux/
 │   ├── Store.luau              # creates the store from the root reducer
 │   ├── Reducers/               # one reducer per slice of state
@@ -34,6 +39,12 @@ client/
 └── Modules/
     └── Synchronization.luau    # subscribes to services, dispatches into the store
 ```
+
+Each feature is a folder under `Applications/`: an `Application.luau` that's its root
+component, plus a `Frames/` folder for the pieces it's built from (Frames can nest further).
+`Components/` is for the genuinely shared widgets; `Root/` is the one top-level tree that
+mounts every application. Don't reach for a flat "one file per screen" layout, a real
+feature like the HUD has a dozen frames, so it starts as a folder from day one.
 
 ## How data flows into the UI
 

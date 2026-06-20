@@ -2,7 +2,7 @@
 
 > A Claude Skill that teaches the model how a real, structured Rojo project is laid out, so it can read, extend, and build Roblox games inside that framework without guessing.
 
-This document explains what the skill is, who it's for, why it exists, and how it's going to be put together. It's the charter we agree on *before* writing the skill itself.
+This document explains what the skill is, who it's for, why it exists, and how it's put together. It's the charter that settles scope *before* the skill itself gets written.
 
 ---
 
@@ -43,15 +43,15 @@ It is deliberately **scoped to Rojo and one structured framework**. It is not tr
 
 ## Who it's for
 
-- **You / your team**, so Claude produces code that fits your existing Rojo projects on the first try.
-- **The wider community**, since it's open source and going on GitHub. Anyone using a Knit-style Rojo setup can install it and get the same benefit.
+- **Teams with an existing Rojo project**, so Claude produces code that fits the codebase on the first try.
+- **The wider community**, since it's open source. Anyone using a Knit-style Rojo setup can install it and get the same benefit.
 - **Both beginners and experienced devs**, a beginner gets a correct project skeleton and clear conventions; an experienced dev gets an assistant that already knows the layout and stops fighting them on structure.
 
 ---
 
 ## The framework it teaches
 
-The skill is built around the structure of a real production game project (used here only as a reference, the skill is rewritten as our own, not copied). That reference establishes a clear, repeatable shape:
+The skill is built around the structure of a real production game project (used here only as a reference, the skill is rewritten as an independent work, not copied). That reference establishes a clear, repeatable shape:
 
 **Tooling**
 
@@ -83,7 +83,7 @@ The skill is built around the structure of a real production game project (used 
 
 ### On the stack: default, but not dogma
 
-Per our decision, the skill treats this stack (Knit + a Roact/Rodux-style UI/state pair + a ProfileService-style data layer + Wally) as the **recommended default**, because it matches the reference project and produces consistent output. But it will also note where the ecosystem has moved on, Knit is a mature, somewhat older pattern, and there are newer approaches to services, UI, and state, so the skill ages well and doesn't lock anyone into one choice. The *structure* (Rojo layout, server/client/shared split, one-feature-per-module) is the durable part; the specific libraries are swappable.
+The skill treats this stack (Knit + a Roact/Rodux-style UI/state pair + a ProfileService-style data layer + Wally) as the **recommended default**, because it matches the reference project and produces consistent output. But it will also note where the ecosystem has moved on, Knit is a mature, somewhat older pattern, and there are newer approaches to services, UI, and state, so the skill ages well and doesn't lock anyone into one choice. The *structure* (Rojo layout, server/client/shared split, one-feature-per-module) is the durable part; the specific libraries are swappable.
 
 ---
 
@@ -116,16 +116,16 @@ Structured-Rojo/
     └── code-review.md           # check code against the framework's conventions
 ```
 
-> Note: file names above are the plan, not final, we'll lock them when we scaffold.
+> These are the final file names; the built skill in `Structured-Rojo/` matches this layout.
 
 ### Roblox Studio MCP integration
 
-Because we chose to include it, the skill will detect whether a Roblox Studio MCP is connected and adapt:
+The skill detects whether a Roblox Studio MCP is connected and adapts:
 
 - **Connected** → it can run Luau live, read the console, insert assets, and play-test, so it can build *and verify* inside Studio instead of just handing you code.
 - **Not connected** → it falls back to producing copy-paste-ready code and clear manual steps.
 
-This mirrors the multi-mode approach from the reference skill, kept lean for our narrower scope.
+This mirrors the multi-mode approach from the reference skill, kept lean for this project's narrower scope.
 
 ### Voice
 
@@ -146,8 +146,8 @@ The anti-hallucination strategy is concrete:
 
 ## Licensing & distribution
 
-- Published to your GitHub for anyone to use.
-- No license file included (add one later if you decide to).
+- Published as an open-source repo for anyone to use.
+- No license file included (can be added later).
 - README with install/usage instructions, and clear attribution noting it's inspired by existing open-source work but written as an independent skill.
 
 ---
