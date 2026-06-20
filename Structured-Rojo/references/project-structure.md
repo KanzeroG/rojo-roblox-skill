@@ -67,8 +67,8 @@ src/
 │
 ├── shared/
 │   ├── Classes/              # classes both sides construct
-│   ├── Configs/              # config for shared packages
-│   ├── Data/                 # the game's config tables — see below
+│   ├── Configs/              # settings for shared packages/modules (frozen tables)
+│   ├── Data/                 # the game's content tables (see below)
 │   └── Helpers/              # small pure utilities (table, number, string helpers)
 │
 └── ReplicatedFirst/
@@ -95,6 +95,35 @@ shared/Data/
 When you add a feature, its *content* usually goes in `shared/Data`, its *server logic* in
 `server/Services`, and its *client behavior + UI* in `client/Controllers` + `client/Roact`.
 That three-part split is the spine of `workflows/add-feature.md`.
+
+### `shared/Configs` vs `shared/Data`
+
+Both are plain Luau tables both sides read, but they answer different questions. `Data` is
+the game's *content*: items, pets, codes, colors, monetization, the things players actually
+interact with. `Configs` is *settings for a shared package or module*, the tuning knobs a
+library reads, not gameplay. In the reference game that's a single `FunnelsModule.config.luau`
+handing the analytics module its funnel steps. Quick test: if it describes the game, it's
+`Data`; if it configures a tool the game uses, it's `Configs`. The `*.config.luau` suffix is
+a handy convention so these stand out.
+
+### Freeze your shared tables
+
+Every content and config module returns one immutable table:
+
+```luau
+return table.freeze({
+	INFO = Color3.fromHex("16A6FF"),
+	SUCCESS = Color3.fromHex("1BFF36"),
+	ERROR = Color3.fromHex("FF2727"),
+})
+```
+
+`table.freeze` makes the table read-only. A stray `Colors.ERROR = ...` somewhere then throws
+loudly instead of quietly corrupting shared state a dozen other systems trust. These tables
+are a source of truth; nothing should rewrite them at runtime. The reference game freezes
+basically every file in `Data/` and `Configs/`, so do the same with new ones. One catch:
+`freeze` is shallow. If a config nests tables you actually need locked, freeze those inner
+tables too. Otherwise the top-level freeze plus the habit of never writing to them is enough.
 
 ## File naming → Roblox class
 
