@@ -147,7 +147,7 @@ The anti-hallucination strategy is concrete:
 ## Licensing & distribution
 
 - Published as an open-source repo for anyone to use.
-- No license file included (can be added later).
+- Released into the public domain via a no-copyright `LICENSE` (do-whatever, no rights reserved).
 - README with install/usage instructions, and clear attribution noting it's inspired by existing open-source work but written as an independent skill.
 
 ---
@@ -158,7 +158,7 @@ The anti-hallucination strategy is concrete:
 2. **Toolchain**: default to **Rokit** (the modern successor); Aftman documented as the legacy alternative the reference project used.
 3. **Stack**: the Knit / Roact / Rodux / ProfileService stack is the recommended default, with modern alternatives documented in `references/alternatives.md`.
 4. **Studio MCP**: included, with live build/test guidance plus an offline fallback.
-5. **License**: none for now.
+5. **License**: public domain, no copyright (a `LICENSE` file that waives all rights).
 
 ---
 
