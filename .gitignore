@@ -1,0 +1,10 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+
+# This repo ships a skill (Markdown + templates), so there's little to ignore.
+# The .gitignore for a GAME built with this framework is documented in
+# Structured-Rojo/references/toolchain-wally.md — copy that into your game project,
+# not here.

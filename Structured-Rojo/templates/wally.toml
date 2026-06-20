@@ -1,0 +1,32 @@
+# Dependencies install into Packages/ (git-ignored), mapped to ReplicatedStorage.Packages.
+# Run `wally install` after editing, then regenerate the sourcemap:
+#   rojo sourcemap default.project.json -o sourcemap.json
+# Versions are examples — verify current versions on the Wally registry before pinning.
+
+[package]
+name = "yourname/my-game"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+# Framework
+Knit = "sleitnick/knit@1.7.0"
+
+# Core utilities
+Signal = "sleitnick/signal@2.0.1"
+Trove = "sleitnick/trove@1.4.0"
+Janitor = "howmanysmall/janitor@1.18.3"
+TableUtil = "sleitnick/table-util@1.2.1"
+Promise = "evaera/promise@4.0.0"
+
+# UI + state (omit if you use a different UI stack — see references/alternatives.md)
+Roact = "roblox/roact@1.4.4"
+Rodux = "roblox/rodux@3.0.0"
+RoactRodux = "roblox/roact-rodux@0.3.0"
+
+[dev-dependencies]
+TestEZ = "roblox/testez@0.4.1"
+
+# Player data: ProfileService is commonly vendored into src/server/Modules instead of
+# pulled from Wally. ProfileStore is the modern successor — see references/data-persistence.md.

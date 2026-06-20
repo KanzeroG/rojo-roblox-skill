@@ -1,0 +1,11 @@
+# Toolchain pinned per-project so everyone (and CI) uses the same versions.
+# Rokit is the recommended manager. `rokit install` after editing.
+# NOTE: version numbers below are examples — check each tool's GitHub releases
+# for the current version before committing. Do not invent versions.
+
+[tools]
+rojo = "rojo-rbx/rojo@7.5.1"
+wally = "UpliftGames/wally@0.3.2"
+stylua = "JohnnyMorganz/StyLua@2.0.2"
+selene = "Kampfkarren/selene@0.28.0"
+# lune = "lune-org/lune@0.8.9"   # uncomment if you run Luau outside Roblox (tests/build)
