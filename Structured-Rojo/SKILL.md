@@ -65,6 +65,7 @@ pull in a reference only when the task calls for it.
 | Build a whole feature (server + client + shared + UI) | `workflows/add-feature.md` + `references/services-controllers.md` |
 | UI / state / Roact / Rodux / loading screen | `references/ui-state.md` |
 | Save / load player data | `references/data-persistence.md` |
+| Sell gamepasses / dev products / packs (monetization) | `references/monetization.md` + `references/data-persistence.md` |
 | Naming, headers, cleanup, common mistakes | `references/conventions.md` |
 | Live build / run / debug in Studio | `references/mcp-studio.md` + `workflows/debug-loop.md` |
 | Review code against the framework | `workflows/code-review.md` + `references/conventions.md` |

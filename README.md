@@ -26,6 +26,7 @@ Structured-Rojo/
 │   ├── services-controllers.md # The Knit service/controller architecture + lifecycle
 │   ├── ui-state.md           # Roact (UI) + Rodux (state) + client boot
 │   ├── data-persistence.md   # Safe player data (ProfileService/ProfileStore)
+│   ├── monetization.md       # Gamepasses, products, packs + safe ProcessReceipt
 │   ├── conventions.md        # Naming, headers, cleanup + sharp-edges table
 │   ├── mcp-studio.md         # Driving Studio live (build / test / debug)
 │   └── alternatives.md       # Modern swaps for each default library
@@ -64,6 +65,7 @@ Just describe the task in plain language, for example:
 
 - "Set up a new Rojo project for my game."
 - "Add a shop feature."
+- "Sell a gamepass or developer product safely."
 - "Where should this script go?"
 - "Review this service for security issues."
 - "My data isn't saving, help me debug it."

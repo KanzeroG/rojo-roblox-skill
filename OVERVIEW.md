@@ -101,6 +101,7 @@ Structured-Rojo/
 │   ├── services-controllers.md  # the service/controller pattern + lifecycle
 │   ├── ui-state.md              # UI + client state layers
 │   ├── data-persistence.md      # safe player data
+│   ├── monetization.md          # gamepasses, products, packs + safe ProcessReceipt
 │   ├── conventions.md           # naming, headers, module style, cleanup
 │   ├── mcp-studio.md            # live build/test via the Studio MCP
 │   └── alternatives.md          # modern swaps for each default library
