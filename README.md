@@ -17,7 +17,7 @@ game-design encyclopedia.
 ## What's inside
 
 ```
-Structured-Rojo/
+rojo-roblox-skill/            # repo root — the skill loads from here
 ├── SKILL.md                  # Router + cheat sheet + Studio-MCP detection
 ├── references/
 │   ├── rojo-setup.md         # Install Rojo CLI, the Studio plugin, the toolchain
@@ -32,7 +32,8 @@ Structured-Rojo/
 │   └── alternatives.md       # Modern swaps for each default library
 ├── templates/                # Copy-paste project.json, wally.toml, rokit.toml,
 │                             #   service/controller/bootstrap files
-└── workflows/                # new-project, add-feature, debug-loop, code-review
+├── workflows/                # new-project, add-feature, debug-loop, code-review
+└── README.md · OVERVIEW.md · LICENSE
 ```
 
 `OVERVIEW.md` (in this repo) is the project charter, the why and the scope.
@@ -54,10 +55,28 @@ ProfileStore, Flamework, roblox-ts, etc.).
 
 ## Install
 
-Copy the `Structured-Rojo/` folder into your Claude skills directory (or install the packaged
-`.skill` file). Once installed, Claude loads it automatically whenever a task involves Rojo,
-a `default.project.json`, Wally, or a structured Roblox project, you don't have to invoke it
-by name.
+This is built as a **Claude skill**, so Claude is where it works as designed. It auto-loads
+whenever a task touches Rojo, a `default.project.json`, Wally, or a structured Roblox project.
+You never invoke it by name.
+
+**Claude Code** — clone it into your skills directory:
+
+```bash
+# Personal, available in every project:
+git clone https://github.com/KanzeroG/rojo-roblox-skill ~/.claude/skills/structured-rojo
+
+# Or project-scoped, committed alongside one repo:
+git clone https://github.com/KanzeroG/rojo-roblox-skill .claude/skills/structured-rojo
+```
+
+`SKILL.md` sits at the repo root, so the clone drops straight in with nothing to move.
+
+**claude.ai** — upload the folder (or a packaged `.skill`) in the skill settings.
+
+**Other models / tools** — there's no skill auto-loading outside Claude, but the content is
+plain Markdown and travels fine. Point a Cursor or Windsurf rules file at it, drop the files
+into a ChatGPT project's knowledge, or index `references/` into a RAG/MCP store. You lose the
+automatic routing; you keep the knowledge.
 
 ## Usage
 

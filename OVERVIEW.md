@@ -92,7 +92,7 @@ The skill treats this stack (Knit + a Roact/Rodux-style UI/state pair + a Profil
 The skill borrows its *shape* from a proven open-source skill: a **router plus a lazy-loaded library**. The entry file stays small and fast; deep knowledge lives in separate files that only load when relevant.
 
 ```
-Structured-Rojo/
+rojo-roblox-skill/      # repo root — skill files live here
 ├── SKILL.md            # Router: intent → which files to load. Plus a quick-reference cheat sheet.
 ├── references/         # Deep-dive docs, loaded on demand
 │   ├── rojo-setup.md            # project.json, serve/build, sourcemap
@@ -117,7 +117,7 @@ Structured-Rojo/
     └── code-review.md           # check code against the framework's conventions
 ```
 
-> These are the final file names; the built skill in `Structured-Rojo/` matches this layout.
+> These are the final file names; the skill at the repo root matches this layout.
 
 ### Roblox Studio MCP integration
 
@@ -165,4 +165,4 @@ The anti-hallucination strategy is concrete:
 
 ## Status
 
-Built. The skill lives in `Structured-Rojo/`: `SKILL.md` (router + cheat sheet), nine reference docs, copy-paste templates, and four workflows. Prose was run through a humanizer pass for a natural voice while keeping the structure technically exact. See `README.md` for install and usage.
+Built. The skill lives at the repo root: `SKILL.md` (router + cheat sheet), nine reference docs, copy-paste templates, and four workflows. Prose was run through a humanizer pass for a natural voice while keeping the structure technically exact. See `README.md` for install and usage.
