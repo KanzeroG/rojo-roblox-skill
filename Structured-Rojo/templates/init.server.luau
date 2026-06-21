@@ -13,10 +13,14 @@ local Knit = require(ReplicatedStorage.Packages.Knit)
 -- require here any packages that must initialize once, e.g.:
 -- require(ReplicatedStorage.Packages.Animation)
 
--- Auto-require all services
-for _, module in script.Services:GetChildren() do
-	if module:IsA("ModuleScript") then
-		require(module)
+-- Auto-require all services. Guard the folder so a fresh project without a
+-- Services/ folder yet starts cleanly instead of erroring on a nil index.
+local servicesFolder = script:FindFirstChild("Services")
+if servicesFolder then
+	for _, module in servicesFolder:GetChildren() do
+		if module:IsA("ModuleScript") then
+			require(module)
+		end
 	end
 end
 

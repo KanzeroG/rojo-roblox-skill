@@ -16,10 +16,14 @@ local Knit = require(ReplicatedStorage.Packages.Knit)
 
 local Client = StarterPlayer.StarterPlayerScripts.Client
 
--- Auto-require all controllers
-for _, module in Client.Controllers:GetChildren() do
-	if module:IsA("ModuleScript") then
-		require(module)
+-- Auto-require all controllers. Guard the folder so a fresh project without a
+-- Controllers/ folder yet starts cleanly instead of erroring on a nil index.
+local controllersFolder = Client:FindFirstChild("Controllers")
+if controllersFolder then
+	for _, module in controllersFolder:GetChildren() do
+		if module:IsA("ModuleScript") then
+			require(module)
+		end
 	end
 end
 

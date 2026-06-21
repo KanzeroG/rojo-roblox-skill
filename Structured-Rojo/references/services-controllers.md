@@ -171,9 +171,12 @@ These are tiny and you rarely change them. They live in `templates/`.
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Knit = require(ReplicatedStorage.Packages.Knit)
 
-for _, module in script.Services:GetChildren() do
-    if module:IsA("ModuleScript") then
-        require(module)
+local servicesFolder = script:FindFirstChild("Services")
+if servicesFolder then
+    for _, module in servicesFolder:GetChildren() do
+        if module:IsA("ModuleScript") then
+            require(module)
+        end
     end
 end
 
